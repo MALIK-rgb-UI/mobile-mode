@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Responsive Text Background Reveal</title>
+<title>Responsive Mobile Text Reveal</title>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet" />
 <style>
   html, body {
@@ -17,23 +17,27 @@
     box-sizing: border-box;
   }
 
+  .heading-container {
+    max-width: 90vw; /* More flexible for mobile */
+    overflow-x: hidden;
+    text-align: center;
+  }
+
   h1 {
     font-family: 'Oswald', sans-serif;
     font-weight: 600;
-    font-size: clamp(24px, 5vw, 48px);
+    font-size: clamp(18px, 6vw, 40px); /* Adjust for mobile readability */
     text-transform: uppercase;
     color: #fff;
-    text-align: center;
-    line-height: 1.2;
-    margin: 0;
-    max-width: 600px;
-    width: 100%;
+    line-height: 1.25;
+    margin: 0 auto;
+    word-break: break-word; /* Prevent overflow */
   }
 
   h1 span {
     display: inline-block;
     position: relative;
-    padding: 0.18em 0.4em;
+    padding: 8px 10px; /* Slightly smaller padding for mobile */
     overflow: hidden;
   }
 
@@ -58,26 +62,18 @@
     to { width: 100%; }
   }
 
-  @media (max-width: 350px) {
-    h1 {
-      font-size: clamp(18px, 7vw, 32px);
-      max-width: 90vw;
-    }
-
-    h1 span {
-      padding: 0.15em 0.3em;
-    }
-  }
 </style>
 </head>
 <body>
 
-<h1>
-  <span>BOOK A FREE</span><br>
-  <span>CONSULTATION AND GET</span><br>
-  <span>60% OFF YOUR FIRST</span><br>
-  <span>TREATMENT</span>
-</h1>
+<div class="heading-container">
+  <h1>
+    <span>BOOK A FREE</span><br>
+    <span>CONSULTATION AND GET</span><br>
+    <span>60% OFF YOUR FIRST</span><br>
+    <span>TREATMENT</span>
+  </h1>
+</div>
 
 </body>
 </html>
