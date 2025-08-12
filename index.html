@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Responsive Text Background Reveal</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet" />
+<style>
+  html, body {
+    margin: 0;
+    height: 100%;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: #000; /* Optional: black bg for contrast */
+  }
+
+  h1 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    /* Fluid font size: min 24px, preferred 5vw, max 48px */
+    font-size: clamp(24px, 5vw, 48px);
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    line-height: 1.2;
+    margin: 0;
+    max-width: 600px;
+    width: 100%;
+  }
+
+  h1 span {
+    display: inline-block; /* keeps pink only behind text */
+    position: relative;
+    padding: 0.18em 0.4em;
+    overflow: hidden;
+  }
+
+  h1 span::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background: #EC54A1;
+    z-index: -1;
+    animation: bgReveal 0.9s ease forwards;
+  }
+
+  /* Stagger animation delays for each line */
+  h1 span:nth-child(1)::before { animation-delay: 0s; }
+  h1 span:nth-child(2)::before { animation-delay: 0.15s; }
+  h1 span:nth-child(3)::before { animation-delay: 0.3s; }
+  h1 span:nth-child(4)::before { animation-delay: 0.45s; }
+
+  @keyframes bgReveal {
+    to { width: 100%; }
+  }
+
+  /* Responsive tweaks for very small screens */
+  @media (max-width: 350px) {
+    h1 {
+      font-size: clamp(18px, 7vw, 32px);
+      max-width: 90vw;
+    }
+
+    h1 span {
+      padding: 0.15em 0.3em;
+    }
+  }
+</style>
+</head>
+<body>
+
+<h1>
+  <span>BOOK A FREE</span><br>
+  <span>CONSULTATION AND GET</span><br>
+  <span>60% OFF YOUR FIRST</span><br>
+  <span>TREATMENT</span>
+</h1>
+
+</body>
+</html>
